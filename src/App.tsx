@@ -6,6 +6,7 @@ import { useLaunchParams } from '@telegram-apps/sdk-react';
 function App() {
   const initData = useLaunchParams();
   const user = initData?.tgWebAppData?.user;
+  const chat = initData?.tgWebAppData?.chat;
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +21,7 @@ function App() {
             {user.last_name && <p>Last Name: {user.last_name}</p>}
             {user.username && <p>Username: @{user.username}</p>}
             {user.language_code && <p>Language Code: {user.language_code}</p>}
+            {chat?.title && <p>Chat Title: {chat?.title}</p>}
           </div>
         )
         }
