@@ -3,26 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { init, miniApp } from '@telegram-apps/sdk';
+import { init, backButton } from '@telegram-apps/sdk-react';
 
-const initializeTelegramSDK = async () => {
-  try {
-    await init();
+// Initialize the package.
+init();
 
-
-    if (miniApp.ready.isAvailable()) {
-      await miniApp.ready();
-      console.log('Mini App готово');
-    }
-
-
-  } catch (error) {
-    console.error('Ошибка инициализации:', error);
-  }
-};
-
-
-initializeTelegramSDK();
+// Mount the Back Button, so we will work with 
+// the actual component properties.
+backButton.mount();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -1,12 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useRawInitData } from '@telegram-apps/sdk-react';
+import { useLaunchParams } from '@telegram-apps/sdk-react';
 
 function App() {
-  const initData = useRawInitData();
-  const parsedInitData = initData ? JSON.parse(initData) : null;
-  const user = parsedInitData?.user;
+  const initData = useLaunchParams();
+  const user = initData?.tgWebAppData?.user;
   return (
     <div className="App">
       <header className="App-header">
