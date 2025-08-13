@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useLaunchParams } from '@telegram-apps/sdk-react';
+import { useLaunchParams, useRawLaunchParams, useRawInitData } from '@telegram-apps/sdk-react';
 
 function App() {
   const initData = useLaunchParams();
+  const useRawLaunchParamsV = useRawLaunchParams();
+  const useRawInitDataV = useRawInitData();
   const user = initData?.tgWebAppData?.user;
   const chat = initData?.tgWebAppData?.chat;
   return (
@@ -22,6 +24,8 @@ function App() {
             {user.username && <p>Username: @{user.username}</p>}
             {user.language_code && <p>Language Code: {user.language_code}</p>}
             {chat?.title && <p>Chat Title: {chat?.title}</p>}
+            {useRawLaunchParamsV && <p>useRawLaunchParams: {useRawLaunchParamsV}</p>}
+            {useRawInitDataV && <p>useRawInitData: {useRawInitDataV}</p>}
           </div>
         )
         }
