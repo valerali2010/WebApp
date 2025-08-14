@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useLaunchParams, useRawLaunchParams, useRawInitData } from '@telegram-apps/sdk-react';
+import { AppRoot, Placeholder } from '@telegram-apps/telegram-ui';
 
 function App() {
   const initData = useLaunchParams();
@@ -10,7 +11,7 @@ function App() {
   const user = initData?.tgWebAppData?.user;
   const chat = initData?.tgWebAppData?.chat;
   return (
-    <div className="App">
+    <AppRoot>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -24,13 +25,11 @@ function App() {
             {user.username && <p>Username: @{user.username}</p>}
             {user.language_code && <p>Language Code: {user.language_code}</p>}
             {chat?.title && <p>Chat Title: {chat?.title}</p>}
-            {useRawLaunchParamsV && <p>useRawLaunchParams: {useRawLaunchParamsV}</p>}
-            {useRawInitDataV && <p>useRawInitData: {useRawInitDataV}</p>}
           </div>
         )
         }
       </header>
-    </div>
+    </AppRoot>
   );
 }
 

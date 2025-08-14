@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { init, backButton } from '@telegram-apps/sdk-react';
+import '@telegram-apps/telegram-ui/dist/styles.css';
+
 
 // Initialize the package.
 init();
